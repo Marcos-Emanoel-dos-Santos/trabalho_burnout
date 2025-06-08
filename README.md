@@ -2,27 +2,27 @@
 
 # A ser feito -> responsável:
 ## Do código principal:
-[ ] Menu interativo com o usuário
-- [ ] Ação para minimização dos efeitos (conforme pergunta) -> _
-- [ ] Score e nível de risco para pessoa solicitada  -> _
-- [ ] Impressão de todas as pessoas (considerando score obtido e classificação de risco)  -> _
-- [ ] Percentual de pessoas com nível de risco baixo  -> _
-- [ ] Percentual de pessoas com nível de risco moderado  -> _
-- [ ] Percentual de pessoas com nível de risco alto  -> _
-- [ ] Encerrar o programa 
+- [ ] Menu interativo com o usuário
+    - [ ] Ação para minimização dos efeitos (conforme pergunta) -> _
+    - [ ] Score e nível de risco para pessoa solicitada  -> _
+    - [ ] Impressão de todas as pessoas (considerando score obtido e classificação de risco)  -> _
+    - [ ] Percentual de pessoas com nível de risco baixo  -> _
+    - [ ] Percentual de pessoas com nível de risco moderado  -> _
+    - [ ] Percentual de pessoas com nível de risco alto  -> _
+    - [ ] Encerrar o programa 
 
 ## Da biblioteca:
 TelaAbertura() -> _
 CalculaScoreIndividual() -> _
-[ ] ClassificaNivelRisco() -> _
-[ ] SugereMinimizacaoSintomas() -> _
-[ ] CalculaPercentual() -> _
-[ ] AtualizaMatrizScoreRisco() -> _
-[ ] ImprimeMatrizScoreRisco() -> _
-[ ] Relatório em PDF
+- [ ] ClassificaNivelRisco() -> _
+- [ ] SugereMinimizacaoSintomas() -> _
+- [ ] CalculaPercentual() -> _
+- [ ] AtualizaMatrizScoreRisco() -> _
+- [ ] ImprimeMatrizScoreRisco() -> _
+- [ ] Relatório em PDF
 
 ## Do PDF:
-[ ] PDF
+- [ ] PDF
 
 Obs:
 - Todo código deve ser comentado.
