@@ -12,8 +12,8 @@
     - [ ] Encerrar o programa 
 
 ## Da biblioteca:
-TelaAbertura() -> _
-CalculaScoreIndividual() -> _
+= [ ] TelaAbertura() -> _
+- [ ] CalculaScoreIndividual() -> _
 - [ ] ClassificaNivelRisco() -> _
 - [ ] SugereMinimizacaoSintomas() -> _
 - [ ] CalculaPercentual() -> _
