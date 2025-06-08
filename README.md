@@ -13,7 +13,7 @@
 
 ## Da biblioteca:
 - [ ] TelaAbertura() -> _
-- [ ] CalculaScoreIndividual() -> _
+- [x] CalculaScoreIndividual() -> _
 - [ ] ClassificaNivelRisco() -> _
 - [ ] SugereMinimizacaoSintomas() -> _
 - [ ] CalculaPercentual() -> _
