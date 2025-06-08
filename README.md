@@ -12,7 +12,7 @@
     - [ ] Encerrar o programa 
 
 ## Da biblioteca:
-= [ ] TelaAbertura() -> _
+- [ ] TelaAbertura() -> _
 - [ ] CalculaScoreIndividual() -> _
 - [ ] ClassificaNivelRisco() -> _
 - [ ] SugereMinimizacaoSintomas() -> _
