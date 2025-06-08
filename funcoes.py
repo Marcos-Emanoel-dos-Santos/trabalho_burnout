@@ -1,4 +1,4 @@
-def CalculaScoreIndividual(individuoDados):
+def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
     # Ex: algo no índicie 0 também tem peso 0. Usei isso para a lógica.
@@ -14,14 +14,20 @@ def CalculaScoreIndividual(individuoDados):
         ["Sim", "Não tive tempo", "Nem vontade tive"]
     ]
 
-    scoreIndividual = 0
+    listaScores = []
 
-    for respostaIndex in range(1, len(individuoDados)): # Para cada resposta dada por ele (o índice 0 não é resposta)
-        resposta = individuoDados[respostaIndex]
-        respostasPossiveis = MatrizBase[respostaIndex-1] # Cada índice da matriz parâmetro deve ser comparada com a MatrizBase começando em 0
+    for individuoIndex in range(len(matriz)): # Para cada indivíduo da matriz
+        if individuoIndex > 0:
+            scoreIndividual = 0
 
-        for respIndex in range(len(respostasPossiveis)): # Para cada índice de respostasPossiveis
-            if resposta == respostasPossiveis[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
-                scoreIndividual += respIndex # Soma o índice (peso) ao score
+            for respostaIndex in range(1, len(matriz[individuoIndex])): # Para cada uma de suas respostas
+                resposta = matriz[individuoIndex][respostaIndex]
+                possiveisRespostas = MatrizBase[respostaIndex-1]
 
-    return scoreIndividual
+                for respIndex in range(len(possiveisRespostas)):
+                    if resposta == possiveisRespostas[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
+                        scoreIndividual += respIndex # Soma o índice (peso) ao score
+
+            listaScores.append([individuoIndex, scoreIndividual])
+
+    return listaScores
