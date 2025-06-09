@@ -1,3 +1,5 @@
+#def TelaAbertura():
+
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
@@ -31,3 +33,25 @@ def CalculaScoreIndividual(matriz):
             listaScores.append([individuoIndex, scoreIndividual])
 
     return listaScores
+
+#def ClassificaNivelRisco():
+
+def SugereMinimizacaoSintomas(usuarioInput): # O input será um número de 1 a 9
+    MatrizMinimizacao = [
+        "Evite estudar até tarde e reduza o uso de telas à noite. Incorpore pausas estratégicas durante o dia (técnica Pomodoro, por exemplo).",
+        "Organize sua rotina começando por pequenas vitórias, como arrumar a cama ou tomar café — isso ativa o cérebro e gera estímulo. ",
+        "Busque aplicar conteúdos em projetos reais, participar de hackathons, ou explorar temas que te inspiram dentro do curso.",
+        "Use listas com entregas claras e realistas por dia. Elimine distrações e crie um ambiente de foco (limpo, silencioso, com metas visíveis).",
+        "Converse com colegas e professores, entenda o impacto do que você está estudando e crie conexões com seus valores pessoais.",
+        "Reconheça o limite entre cansaço e sofrimento. Conversar com alguém que compreenda sua trajetória pode aliviar a sobrecarga emocional.",
+        "Mesmo em poucos minutos, práticas como respiração guiada ou alongamentos reduzem o acúmulo emocional.",
+        "Uma ligação de 5 minutos ou uma pausa para café com alguém confiável ajuda a recuperar o senso de pertencimento." ,
+        "Desenhar, ouvir música, assistir algo leve, cozinhar... O prazer gratuito recarrega energia emocional e combate a anedonia."
+    ]
+    print(MatrizMinimizacao[usuarioInput-1]) # busca na matriz a resposta correspondente ao input e imprime
+
+#def CalculaPercentual():
+
+#def AtualizaMatrizScoreRisco():
+
+#def ImprimeMatrizScoreRisco():

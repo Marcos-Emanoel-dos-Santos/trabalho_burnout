@@ -13,16 +13,15 @@
 
 ## Da biblioteca:
 - [ ] TelaAbertura() -> _
-- [x] CalculaScoreIndividual() -> _
+- [x] CalculaScoreIndividual() -> Marcos
 - [ ] ClassificaNivelRisco() -> _
-- [ ] SugereMinimizacaoSintomas() -> _
+- [x] SugereMinimizacaoSintomas() -> _
 - [ ] CalculaPercentual() -> _
 - [ ] AtualizaMatrizScoreRisco() -> _
 - [ ] ImprimeMatrizScoreRisco() -> _
-- [ ] Relatório em PDF
 
 ## Do PDF:
-- [ ] PDF
+- [ ] Relatório em PDF
 
 Obs:
 - Todo código deve ser comentado.
