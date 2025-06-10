@@ -1,6 +1,11 @@
-def TelaAbertura(opcao):
-    if opcao == 1:
-        SugereMinimizacaoSintomas()
+def TelaAbertura():
+    print("=#="*10)
+    print("ANÁLISE COMPUTACIONAL DE RISCO DE BURNOUT")
+    print("PUCPR - Bacharelado em Ciência da Computação")
+    print("Disciplina: Raciocínio Algorítmico - Turma U")
+    print("Este programa analisa sintomas de burnout e sugere ações para minimizar seus efeitos.")
+    print("=#="*10)
+    
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
@@ -58,9 +63,9 @@ def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
 6 - Pensamentos negativos
 7 - Isolamento emocional 
 8 - Isolamento social 
-9 - Fez algo prazeroso 
+9 - Fez algo prazeroso
 ''')
-    while usuarioInput not in "123456789" or len(usuarioInput) > 1:
+    while usuarioInput not in "123456789" or len(usuarioInput) > 1 or len(usuarioInput) < 1:
         usuarioInput = ("Inválido. Tente novamente.")
     usuarioInput = int(usuarioInput)
     print("Resposta:")
