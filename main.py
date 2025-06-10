@@ -1,6 +1,7 @@
 from dados_coletados import lista_respostas
 from funcoes import *
 
+
 print("Bem-vindo! Esta aplicação tem o intuito de fornecer informações acerca do burnout.")
 while True:
     print("O que deseja fazer agora?")

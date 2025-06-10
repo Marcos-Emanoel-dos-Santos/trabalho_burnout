@@ -1,6 +1,7 @@
 def TelaAbertura(opcao):
     if opcao == 1:
         SugereMinimizacaoSintomas()
+
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
@@ -35,7 +36,18 @@ def CalculaScoreIndividual(matriz):
 
     return listaScores
 
-#def ClassificaNivelRisco():
+def ClassificaNivelRisco(matriz):
+    MatrizRisco = []
+    for individuo in matriz:
+        if individuo[1] <= 10:
+            individuo.append("baixo")
+        elif individuo[1] <= 20:
+            individuo.append("moderado")
+        else:
+            individuo.append("alto")
+        MatrizRisco.append(individuo)
+
+    return MatrizRisco
 
 def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
     MatrizMinimizacao = [
