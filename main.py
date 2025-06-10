@@ -42,5 +42,5 @@ Digite aqui: ''')
     elif oQueFazer == 6:
         print("Bana")
     elif oQueFazer == 7:
-        print("Encerrando o programa")
+        print("Encerrando o programa.")
         break
