@@ -15,7 +15,7 @@
 - [ ] TelaAbertura() -> _
 - [x] CalculaScoreIndividual() -> Marcos
 - [ ] ClassificaNivelRisco() -> _
-- [x] SugereMinimizacaoSintomas() -> _
+- [x] SugereMinimizacaoSintomas() -> Marcos
 - [ ] CalculaPercentual() -> _
 - [ ] AtualizaMatrizScoreRisco() -> _
 - [ ] ImprimeMatrizScoreRisco() -> _

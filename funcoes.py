@@ -1,10 +1,11 @@
-#def TelaAbertura():
-
+def TelaAbertura(opcao):
+    if opcao == 1:
+        SugereMinimizacaoSintomas()
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
     # Ex: algo no índicie 0 também tem peso 0. Usei isso para a lógica.
-    MatrizBase = [
+    MatrizScore = [
         ["Nunca", "Às vezes", "Frequentemente", "Todos os dias"],
         ["Sim", "Com dificuldade", "Não conseguiu"],
         ["Sim", "Neutro", "Nada motivado(a)"],
@@ -24,7 +25,7 @@ def CalculaScoreIndividual(matriz):
 
             for respostaIndex in range(1, len(matriz[individuoIndex])): # Para cada uma de suas respostas
                 resposta = matriz[individuoIndex][respostaIndex]
-                possiveisRespostas = MatrizBase[respostaIndex-1]
+                possiveisRespostas = MatrizScore[respostaIndex-1]
 
                 for respIndex in range(len(possiveisRespostas)):
                     if resposta == possiveisRespostas[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
@@ -36,7 +37,7 @@ def CalculaScoreIndividual(matriz):
 
 #def ClassificaNivelRisco():
 
-def SugereMinimizacaoSintomas(usuarioInput): # O input será um número de 1 a 9
+def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
     MatrizMinimizacao = [
         "Evite estudar até tarde e reduza o uso de telas à noite. Incorpore pausas estratégicas durante o dia (técnica Pomodoro, por exemplo).",
         "Organize sua rotina começando por pequenas vitórias, como arrumar a cama ou tomar café — isso ativa o cérebro e gera estímulo. ",
@@ -48,7 +49,23 @@ def SugereMinimizacaoSintomas(usuarioInput): # O input será um número de 1 a 9
         "Uma ligação de 5 minutos ou uma pausa para café com alguém confiável ajuda a recuperar o senso de pertencimento." ,
         "Desenhar, ouvir música, assistir algo leve, cozinhar... O prazer gratuito recarrega energia emocional e combate a anedonia."
     ]
+    print("Digite o número que corresponda ao sintoma que deseja saber sobre:")
+    usuarioInput = input('''1 - Cansaço físico
+2 - Energia para tarefas
+3 - Motivação pelo trabalho
+4 - Procrastinação
+5 - Sentido no trabalho 
+6 - Pensamentos negativos
+7 - Isolamento emocional 
+8 - Isolamento social 
+9 - Fez algo prazeroso 
+''')
+    while usuarioInput not in "123456789" or len(usuarioInput) > 1:
+        usuarioInput = ("Inválido. Tente novamente.")
+    usuarioInput = int(usuarioInput)
+    print("Resposta:")
     print(MatrizMinimizacao[usuarioInput-1]) # busca na matriz a resposta correspondente ao input e imprime
+    print() # pular uma linha (só estética)
 
 #def CalculaPercentual():
 
