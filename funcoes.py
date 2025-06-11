@@ -5,21 +5,21 @@ def TelaAbertura():
     print("Disciplina: Raciocínio Algorítmico - Turma U")
     print("Este programa analisa sintomas de burnout e sugere ações para minimizar seus efeitos.")
     print("=#="*10)
-    
+
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
     # Ex: algo no índicie 0 também tem peso 0. Usei isso para a lógica.
     MatrizScore = [
-        ["Nunca", "Às vezes", "Frequentemente", "Todos os dias"],
-        ["Sim", "Com dificuldade", "Não conseguiu"],
-        ["Sim", "Neutro", "Nada motivado(a)"],
-        ["Não", "Um pouco", "Sim, constantemente"],
-        ["Não", "Às vezes", "Quase sempre"],
-        ["Não", "Já tive essa semana", "Tenho todos os dias"],
-        ["Não", "Levemente", "Muito"],
-        ["Não", "Com esforço", "Me isolei totalmente"],
-        ["Sim", "Não tive tempo", "Nem vontade tive"]
+        ["Nunca", "Às vezes", "Frequentemente", "Todos os dias", 3],
+        ["Sim", "Com dificuldade", "Não conseguiu", 2],
+        ["Sim", "Neutro", "Nada motivado(a)", 3],
+        ["Não", "Um pouco", "Sim, constantemente", 2],
+        ["Não", "Às vezes", "Quase sempre", 3],
+        ["Não", "Já tive essa semana", "Tenho todos os dias", 3],
+        ["Não", "Levemente", "Muito", 2],
+        ["Não", "Com esforço", "Me isolei totalmente", 2],
+        ["Sim", "Não tive tempo", "Nem vontade tive", 2]
     ]
 
     listaScores = []
@@ -34,22 +34,25 @@ def CalculaScoreIndividual(matriz):
 
                 for respIndex in range(len(possiveisRespostas)):
                     if resposta == possiveisRespostas[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
-                        scoreIndividual += respIndex # Soma o índice (peso) ao score
+                        # Soma o índice (valor) multiplicado pelo peso no score
+                        scoreIndividual += respIndex*possiveisRespostas[-1]
 
             listaScores.append([individuoIndex, scoreIndividual])
 
     return listaScores
 
 def ClassificaNivelRisco(matriz):
-    MatrizRisco = []
-    for individuo in matriz:
+    MatrizRisco = [] # Matriz que armazenará o risco e a posição de cada um na lista_resposta
+
+    for individuo in matriz: # armazena a forma [pessoa, risco] sendo "pessoa" a posição de cada um em lista_resposta
         if individuo[1] <= 10:
-            individuo.append("baixo")
+            individuo[1] = "baixo"
         elif individuo[1] <= 20:
-            individuo.append("moderado")
+            individuo[1] = "moderado"
         else:
-            individuo.append("alto")
-        MatrizRisco.append(individuo)
+            individuo[1] = "alto"
+
+        MatrizRisco.append(individuo) # Coloca cada indivíduo na matriz
 
     return MatrizRisco
 

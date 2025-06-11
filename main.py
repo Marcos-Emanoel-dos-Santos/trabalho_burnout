@@ -30,6 +30,7 @@ Digite aqui: ''')
     #MatrizFuncoes = [
     #    SugereMinimizacaoSintomas
     #]
+    ClassificaNivelRisco(CalculaScoreIndividual(lista_respostas))
     print() # Pula uma linha. Apenas estética
     if oQueFazer == 1:
         SugereMinimizacaoSintomas()
