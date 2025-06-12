@@ -92,7 +92,36 @@ def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
     print(MatrizMinimizacao[usuarioInput-1]) # busca na matriz a resposta correspondente ao input e imprime
     print() # pular uma linha (só estética)
 
-#def CalculaPercentual():
+def CalculaPercentual(matriz_risco):
+    # Contadores para cada nível de risco
+    baixo = 0
+    moderado = 0
+    alto = 0
+    
+    # Total de pessoas
+    total_pessoas = len(matriz_risco)
+    
+    # Contagem dos níveis de risco
+    for individuo in matriz_risco:
+        nivel = individuo[1]
+        if nivel == "baixo":
+            baixo += 1
+        elif nivel == "moderado":
+            moderado += 1
+        elif nivel == "alto":
+            alto += 1
+    
+    # Cálculo dos percentuais (arredondados para 2 casas decimais)
+    percentual_baixo = round((baixo / total_pessoas) * 100, 2)
+    percentual_moderado = round((moderado / total_pessoas) * 100, 2)
+    percentual_alto = round((alto / total_pessoas) * 100, 2)
+    
+    # Retorna um dicionário com os percentuais
+    return {
+        "baixo": percentual_baixo,
+        "moderado": percentual_moderado,
+        "alto": percentual_alto
+    }
 
 #def AtualizaMatrizScoreRisco():
 
