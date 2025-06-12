@@ -111,18 +111,15 @@ def CalculaPercentual(matriz_risco):
             moderado += 1
         elif nivel == "alto":
             alto += 1
-    
+
     # Cálculo dos percentuais (arredondados para 2 casas decimais)
-    percentual_baixo = round((baixo / total_pessoas) * 100, 2)
-    percentual_moderado = round((moderado / total_pessoas) * 100, 2)
-    percentual_alto = round((alto / total_pessoas) * 100, 2)
-    
-    # Retorna um dicionário com os percentuais
-    return {
-        "baixo": percentual_baixo,
-        "moderado": percentual_moderado,
-        "alto": percentual_alto
-    }
+    percentual_baixo = f"{(baixo / total_pessoas)*100:.2f}"
+    percentual_moderado = f"{(moderado / total_pessoas)*100:.2f}"
+    percentual_alto = f"{(alto / total_pessoas) * 100:.2f}"
+
+    # Retorna uma matriz com os percentuais
+    return [["baixo", percentual_baixo], ["moderado", percentual_moderado], ["alto", percentual_alto]]
+
 
 def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
     for i in range(len(matriz)):
