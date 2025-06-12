@@ -3,7 +3,7 @@
 # A ser feito -> responsável:
 ## Do código principal:
 - [ ] Menu interativo com o usuário
-    - [ ] Ação para minimização dos efeitos (conforme pergunta) -> Marcos
+    - [1] Ação para minimização dos efeitos (conforme pergunta) -> Marcos
     - [ ] Score e nível de risco para pessoa solicitada  -> _
     - [ ] Impressão de todas as pessoas (considerando score obtido e classificação de risco)  -> _
     - [ ] Percentual de pessoas com nível de risco baixo  -> _
@@ -12,9 +12,9 @@
     - [ ] Encerrar o programa 
 
 ## Da biblioteca:
-- [ ] TelaAbertura() -> _
+- [x] TelaAbertura() -> Marcos
 - [x] CalculaScoreIndividual() -> Marcos
-- [ ] ClassificaNivelRisco() -> Bruna
+- [x] ClassificaNivelRisco() -> Marcos
 - [x] SugereMinimizacaoSintomas() -> Marcos
 - [ ] CalculaPercentual() -> Rafael
 - [ ] AtualizaMatrizScoreRisco() -> _
