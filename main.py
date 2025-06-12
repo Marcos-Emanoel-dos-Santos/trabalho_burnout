@@ -34,11 +34,14 @@ while True:
     elif oQueFazer == 3:
         print("Bana")
     elif oQueFazer == 4:
-        print("Bana")
+        percentuais = CalculaPercentual(ClassificaNivelRisco(CalculaScoreIndividual(lista_respostas)))
+        print(f"Percentual de pessoas com risco BAIXO: {percentuais['baixo']}%")
     elif oQueFazer == 5:
-        print("Bana")
+        percentuais = CalculaPercentual(ClassificaNivelRisco(CalculaScoreIndividual(lista_respostas)))
+        print(f"Percentual de pessoas com risco MODERADO: {percentuais['moderado']}%")
     elif oQueFazer == 6:
-        print("Bana")
+        percentuais = CalculaPercentual(ClassificaNivelRisco(CalculaScoreIndividual(lista_respostas)))
+        print(f"Percentual de pessoas com risco ALTO: {percentuais['alto']}%")  
     elif oQueFazer == 7:
         print("Encerrando o programa.")
         break
