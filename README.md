@@ -3,13 +3,13 @@
 # A ser feito -> responsável:
 ## Do código principal:
 - [ ] Menu interativo com o usuário
-    - [1] Ação para minimização dos efeitos (conforme pergunta) -> Marcos
+    - [x] Ação para minimização dos efeitos (conforme pergunta) -> Marcos
     - [ ] Score e nível de risco para pessoa solicitada  -> _
     - [ ] Impressão de todas as pessoas (considerando score obtido e classificação de risco)  -> _
     - [ ] Percentual de pessoas com nível de risco baixo  -> _
     - [ ] Percentual de pessoas com nível de risco moderado  -> _
     - [ ] Percentual de pessoas com nível de risco alto  -> _
-    - [ ] Encerrar o programa 
+    - [x] Encerrar o programa 
 
 ## Da biblioteca:
 - [x] TelaAbertura() -> Marcos

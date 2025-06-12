@@ -12,6 +12,7 @@ def TelaAbertura():
 Digite aqui: ''')
     return oQueFazer
 
+# Retorna uma matriz com indivíduos e score de cada um na forma [individuo, score]
 def CalculaScoreIndividual(matriz):
     # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
     # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
@@ -31,8 +32,8 @@ def CalculaScoreIndividual(matriz):
     listaScores = []
 
     for individuoIndex in range(len(matriz)): # Para cada indivíduo da matriz
+        scoreIndividual = 0
         if individuoIndex > 0:
-            scoreIndividual = 0
 
             for respostaIndex in range(1, len(matriz[individuoIndex])): # Para cada uma de suas respostas
                 resposta = matriz[individuoIndex][respostaIndex]
@@ -41,26 +42,26 @@ def CalculaScoreIndividual(matriz):
                 for respIndex in range(len(possiveisRespostas)):
                     if resposta == possiveisRespostas[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
                         # Soma o índice (valor) multiplicado pelo peso no score
-                        scoreIndividual += respIndex*possiveisRespostas[-1]
+                        scoreIndividual += respIndex*MatrizScore[respIndex][-1]
 
-            listaScores.append([individuoIndex, scoreIndividual])
+        listaScores.append([individuoIndex, scoreIndividual])
 
     return listaScores
 
+# retorna uma matriz com indivíduos e nível de risco na forma [individuo, nivelRisco]
 def ClassificaNivelRisco(matriz):
     MatrizRisco = [] # Matriz que armazenará o risco e a posição de cada um na lista_resposta
 
-    for individuo in matriz: # armazena a forma [pessoa, risco] sendo "pessoa" a posição de cada um em lista_resposta
-        if individuo[1] <= 10:
-            individuo[1] = "baixo"
-        elif individuo[1] <= 20:
-            individuo[1] = "moderado"
+    for i in range(len(matriz)): # armazena a forma [pessoa, risco] sendo "pessoa" a posição de cada um em lista_resposta
+        if matriz[i][1] <= 10:
+            MatrizRisco.append([i, "baixo"])
+        elif matriz[i][1] <= 20:
+            MatrizRisco.append([i, "moderado"])
         else:
-            individuo[1] = "alto"
-
-        MatrizRisco.append(individuo) # Coloca cada indivíduo na matriz
+            MatrizRisco.append([i, "alto"])
 
     return MatrizRisco
+
 
 def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
     MatrizMinimizacao = [
@@ -94,6 +95,12 @@ def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
 
 #def CalculaPercentual():
 
-#def AtualizaMatrizScoreRisco():
+def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
+    for i in range(len(matriz)):
+        while len(matriz[i]) < 12:
+            matriz[i].append(None)
+        matriz[i][10] = matScore[i-1][1]
+        matriz[i][11] = matRisco[i-1][1]
+    return matriz
 
 #def ImprimeMatrizScoreRisco():

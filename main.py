@@ -8,9 +8,13 @@ print("Disciplina: Raciocínio Algorítmico - Turma U")
 print("Este programa analisa sintomas de burnout e sugere ações para minimizar seus efeitos.")
 print("=#="*10)
 
+MatrizScore = CalculaScoreIndividual(lista_respostas)
+MatrizRisco = ClassificaNivelRisco(MatrizScore)
+lista_respostas = AtualizaMatrizScoreRisco(lista_respostas, MatrizScore, MatrizRisco)
 
 while True:
     print() # Pula uma linha. Apenas estética
+    print(lista_respostas[1])
     oQueFazer = TelaAbertura() # Abertura do programa.
     
     # Se o input for incorreto, pede novamente ao usuário
@@ -21,11 +25,7 @@ while True:
     # Passando da etapa anterior a resposta com certeza é um número, então ele é passado para int para facilitar o código
     oQueFazer = int(oQueFazer)
 
-    # PERGUNTAR SOBRE
-    #MatrizFuncoes = [
-    #    SugereMinimizacaoSintomas
-    #]
-    ClassificaNivelRisco(CalculaScoreIndividual(lista_respostas))
+
     print() # Pula uma linha. Apenas estética
     if oQueFazer == 1:
         SugereMinimizacaoSintomas()
