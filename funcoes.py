@@ -122,7 +122,9 @@ def CalculaPercentual(matriz_risco):
 
 
 def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
-    for i in range(len(matriz)):
+    matriz[0].append("score")
+    matriz[0].append("risco")
+    for i in range(1, len(matriz)):
         while len(matriz[i]) < 12:
             matriz[i].append(None)
         matriz[i][10] = matScore[i-1][1]
