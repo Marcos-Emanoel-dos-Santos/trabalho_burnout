@@ -12,7 +12,7 @@ print("=#="*10)
 MatrizScore = CalculaScoreIndividual(lista_respostas)
 # Cria a matriz de classificação de riscos
 MatrizRisco = ClassificaNivelRisco(MatrizScore)
-# Copia a matriz original com as colunas a mais
+# Copia a matriz original e adiciona as colunas score e risco
 lista_respostas = AtualizaMatrizScoreRisco(lista_respostas, MatrizScore, MatrizRisco)
 
 while True:

@@ -132,3 +132,5 @@ def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
     return matriz
 
 #def ImprimeMatrizScoreRisco():
+
+# FUNÇÕES PRÓPRIAS DA EQUIPE
