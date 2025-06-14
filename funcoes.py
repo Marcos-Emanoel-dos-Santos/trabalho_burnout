@@ -10,25 +10,16 @@ def TelaAbertura():
 6 - Exibir percentual de pessoas com nível de risco alto.
 7 - Encerrar o programa.
 Digite aqui: ''')
+    
+    # Se o input for incorreto, pede novamente ao usuário
+    while oQueFazer not in "1234567" or len(oQueFazer) > 1 or len(oQueFazer) < 1:
+        print("Ops! O que foi digitado não está entre as opções!")
+        oQueFazer = input("O que deseja saber sobre o burnout? ")
+
     return oQueFazer
 
 # Retorna uma matriz com indivíduos e score de cada um na forma [individuo, score]
-def CalculaScoreIndividual(matriz):
-    # Cria uma matriz com as possíveis respostas para cada pergunta, e em ordem
-    # É visível, pela tabela de pesos, que é possível relacionar peso ao índice,
-    # Ex: algo no índicie 0 também tem peso 0. Usei isso para a lógica.
-    MatrizScore = [
-        ["Nunca", "Às vezes", "Frequentemente", "Todos os dias", 3],
-        ["Sim", "Com dificuldade", "Não conseguiu", 2],
-        ["Sim", "Neutro", "Nada motivado(a)", 3],
-        ["Não", "Um pouco", "Sim, constantemente", 2],
-        ["Não", "Às vezes", "Quase sempre", 3],
-        ["Não", "Já tive essa semana", "Tenho todos os dias", 3],
-        ["Não", "Levemente", "Muito", 2],
-        ["Não", "Com esforço", "Me isolei totalmente", 2],
-        ["Sim", "Não tive tempo", "Nem vontade tive", 2]
-    ]
-
+def CalculaScoreIndividual(matriz, MatrizScore):
     listaScores = []
 
     for individuoIndex in range(len(matriz)): # Para cada indivíduo da matriz
@@ -43,10 +34,10 @@ def CalculaScoreIndividual(matriz):
                     if resposta == possiveisRespostas[respIndex]: # Verifica se a resposta coincide com o valor naquele índice
                         # Soma o índice (valor) multiplicado pelo peso no score
                         scoreIndividual += respIndex*MatrizScore[respIndex][-1]
-
+        # Adiciona o indivíduo e seu score a uma matriz
         listaScores.append([individuoIndex, scoreIndividual])
 
-    return listaScores
+    return listaScores # Retorna o resultado
 
 # retorna uma matriz com indivíduos e nível de risco na forma [individuo, nivelRisco]
 def ClassificaNivelRisco(matriz):
@@ -63,18 +54,7 @@ def ClassificaNivelRisco(matriz):
     return MatrizRisco
 
 
-def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
-    MatrizMinimizacao = [
-        "Evite estudar até tarde e reduza o uso de telas à noite. Incorpore pausas estratégicas durante o dia (técnica Pomodoro, por exemplo).",
-        "Organize sua rotina começando por pequenas vitórias, como arrumar a cama ou tomar café — isso ativa o cérebro e gera estímulo. ",
-        "Busque aplicar conteúdos em projetos reais, participar de hackathons, ou explorar temas que te inspiram dentro do curso.",
-        "Use listas com entregas claras e realistas por dia. Elimine distrações e crie um ambiente de foco (limpo, silencioso, com metas visíveis).",
-        "Converse com colegas e professores, entenda o impacto do que você está estudando e crie conexões com seus valores pessoais.",
-        "Reconheça o limite entre cansaço e sofrimento. Conversar com alguém que compreenda sua trajetória pode aliviar a sobrecarga emocional.",
-        "Mesmo em poucos minutos, práticas como respiração guiada ou alongamentos reduzem o acúmulo emocional.",
-        "Uma ligação de 5 minutos ou uma pausa para café com alguém confiável ajuda a recuperar o senso de pertencimento." ,
-        "Desenhar, ouvir música, assistir algo leve, cozinhar... O prazer gratuito recarrega energia emocional e combate a anedonia."
-    ]
+def SugereMinimizacaoSintomas(MatrizMinimizacao):
     print("Digite o número que corresponda ao sintoma que deseja saber sobre:")
     usuarioInput = input('''1 - Cansaço físico
 2 - Energia para tarefas
@@ -86,8 +66,10 @@ def SugereMinimizacaoSintomas(): # O input será um número de 1 a 9
 8 - Isolamento social 
 9 - Fez algo prazeroso
 ''')
+    # Enquanto o usuário não digitar uma resposta válida, pede uma nova resposta
     while usuarioInput not in "123456789" or len(usuarioInput) > 1 or len(usuarioInput) < 1:
         usuarioInput = ("Inválido. Tente novamente.")
+    # Depois de aceita, a resposta com certeza é um número inteiro e, portanto, int() não retornará erro.
     usuarioInput = int(usuarioInput)
     print("Resposta:")
     print(MatrizMinimizacao[usuarioInput-1]) # busca na matriz a resposta correspondente ao input e imprime
@@ -122,13 +104,15 @@ def CalculaPercentual(matriz_risco):
 
 
 def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
+    # Adiciona score e risco ao cabeçalho da matriz
     matriz[0].append("score")
     matriz[0].append("risco")
-    for i in range(1, len(matriz)):
-        while len(matriz[i]) < 12:
-            matriz[i].append(None)
-        matriz[i][10] = matScore[i-1][1]
-        matriz[i][11] = matRisco[i-1][1]
+
+    for i in range(1, len(matriz)): # Para cada item da matriz, pulando o cabeçalho
+        while len(matriz[i]) < 12: # Se não tiver 12 colunas, adiciona até ter
+            matriz[i].append(None) # Obs: isso é feito para não adicionar colunas infinitamente toda vez que a função é chamada.
+        matriz[i][10] = matScore[i-1][1] # Adiciona score à matriz original
+        matriz[i][11] = matRisco[i-1][1] # Adiciona risco à matriz original
     return matriz
 
 #def ImprimeMatrizScoreRisco():
