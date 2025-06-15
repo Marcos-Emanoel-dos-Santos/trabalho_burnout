@@ -17,7 +17,7 @@ A ser feito -> responsável:
 - [x] CalculaScoreIndividual() -> Marcos
 - [x] ClassificaNivelRisco() -> Marcos
 - [x] SugereMinimizacaoSintomas() -> Marcos
-- [ ] CalculaPercentual() -> Rafael
+- [x] CalculaPercentual() -> Rafael
 - [ ] AtualizaMatrizScoreRisco() -> _
 - [ ] ImprimeMatrizScoreRisco() -> _
 
