@@ -18,7 +18,7 @@ lista_respostas = AtualizaMatrizScoreRisco(lista_respostas, MatrizIndividuoScore
 
 while True:
     print() # Pula uma linha. Apenas estética
-    print(lista_respostas[120])
+    print(lista_respostas[3])
     oQueFazer = TelaAbertura() # Abertura do programa.
     
     # Passando da etapa anterior a resposta com certeza é um número, então ele é passado para int para facilitar o código
@@ -27,6 +27,7 @@ while True:
     print() # Pula uma linha. Apenas estética
 
     # NÃO SE APEGUEM AOS IFS, VOU DAR UM JEITO DE DIMINUIR A QUANTIDADE DE LINHAS
+    # OK
     if oQueFazer == 1:
         SugereMinimizacaoSintomas(MatrizMinimizacao)
     elif oQueFazer == 2:
@@ -34,14 +35,11 @@ while True:
     elif oQueFazer == 3:
         print("Bana")
     elif oQueFazer == 4:
-        percentuais = CalculaPercentual(ClassificaNivelRisco(MatrizIndividuoScore))
-        print(f"Percentual de pessoas com risco BAIXO: {percentuais[0][1]}%")
+        imprimePercentual(MatrizIndividuoScore, "baixo")
     elif oQueFazer == 5:
-        percentuais = CalculaPercentual(ClassificaNivelRisco(MatrizIndividuoScore))
-        print(f"Percentual de pessoas com risco MODERADO: {percentuais[1][1]}%")
+        imprimePercentual(MatrizIndividuoScore, "moderado")
     elif oQueFazer == 6:
-        percentuais = CalculaPercentual(ClassificaNivelRisco(MatrizIndividuoScore))
-        print(f"Percentual de pessoas com risco ALTO: {percentuais[2][1]}%")  
+        imprimePercentual(MatrizIndividuoScore, "alto")
     elif oQueFazer == 7:
         print("Encerrando o programa.")
         break

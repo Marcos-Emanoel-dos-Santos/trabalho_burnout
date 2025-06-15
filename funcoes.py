@@ -104,17 +104,56 @@ def CalculaPercentual(matriz_risco):
 
 
 def AtualizaMatrizScoreRisco(matriz, matScore, matRisco):
+    # Transforma cada lista de indivíduo em uma lista contendo apenas seu nome
+    for i in range(len(matriz)):
+        matriz[i] = [matriz[i][0]]
+
     # Adiciona score e risco ao cabeçalho da matriz
     matriz[0].append("score")
     matriz[0].append("risco")
 
     for i in range(1, len(matriz)): # Para cada item da matriz, pulando o cabeçalho
-        while len(matriz[i]) < 12: # Se não tiver 12 colunas, adiciona até ter
-            matriz[i].append(None) # Obs: isso é feito para não adicionar colunas infinitamente toda vez que a função é chamada.
-        matriz[i][10] = matScore[i-1][1] # Adiciona score à matriz original
-        matriz[i][11] = matRisco[i-1][1] # Adiciona risco à matriz original
+        matriz[i].append(matScore[i-1][1]) # Adiciona score à matriz original
+        matriz[i].append(matRisco[i-1][1]) # Adiciona risco à matriz original
+
     return matriz
 
-#def ImprimeMatrizScoreRisco():
+
+def ImprimeMatrizScoreRisco(matriz):
+   if len(matriz) == 1: # Se for uma pessoa específica
+        print("Pessoa, Score, Risco")
+        print(f"{matriz[0][0]}, {matriz[0][1]}, {matriz[0][2]}")
+   else: # Se for a matriz toda
+       print("Pessoa, Score, Risco")
+       for i in range(1, len(matriz)):
+           print(f"{matriz[i][0]}, {matriz[i][0] }, {matriz[i][0]}") 
+           # ['pessoa_1', 12, 'moderado']
 
 # FUNÇÕES PRÓPRIAS DA EQUIPE
+
+#Retorna um indivíduo ou todos os indivíduos da matriz em caso de individuo=-1, dependendo do parâmetro colocado
+def buscaDadosMatriz(matriz, pessoa=-1):
+
+    pessoa = int(pessoa) # Transforma o input em int
+
+    while pessoa > 120 or (pessoa < 1 and pessoa != -1): # Verifica se o valor é válido
+        pessoa = input("Digite um valor válido: Entre 1 e 120.")
+    
+    if pessoa != -1: # Se 
+        return [matriz[pessoa]]
+    return matriz #retorna toda a matriz  
+
+
+    
+
+# Imprime o percentual de indivíduos em certa faixa tendo como parâmetros uma matriz de referência
+# e o nivel de risco que deseja que seja exibido
+def imprimePercentual(MatrizIndividuoScore, risco):
+    percentuais = CalculaPercentual(ClassificaNivelRisco(MatrizIndividuoScore))
+
+    if risco == 'baixo':
+        print(f"Percentual de pessoas com risco BAIXO: {percentuais[0][1]}%")
+    elif risco == 'moderado':
+        print(f"Percentual de pessoas com risco MODERADO: {percentuais[0][1]}%")
+    else:
+        print(f"Percentual de pessoas com risco ALTO: {percentuais[0][1]}%")

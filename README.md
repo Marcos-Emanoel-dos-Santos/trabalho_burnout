@@ -7,9 +7,9 @@ A ser feito -> responsável:
     - [x] Ação para minimização dos efeitos (conforme pergunta) -> Marcos
     - [ ] Score e nível de risco para pessoa solicitada  -> _
     - [ ] Impressão de todas as pessoas (considerando score obtido e classificação de risco)  -> _
-    - [ ] Percentual de pessoas com nível de risco baixo  -> _
-    - [ ] Percentual de pessoas com nível de risco moderado  -> _
-    - [ ] Percentual de pessoas com nível de risco alto  -> _
+    - [x] Percentual de pessoas com nível de risco baixo  -> _
+    - [x] Percentual de pessoas com nível de risco moderado  -> _
+    - [x] Percentual de pessoas com nível de risco alto  -> _
     - [x] Encerrar o programa 
 
 ## Da biblioteca:
@@ -18,7 +18,7 @@ A ser feito -> responsável:
 - [x] ClassificaNivelRisco() -> Marcos
 - [x] SugereMinimizacaoSintomas() -> Marcos
 - [x] CalculaPercentual() -> Rafael
-- [ ] AtualizaMatrizScoreRisco() -> _
+- [x] AtualizaMatrizScoreRisco() -> _
 - [ ] ImprimeMatrizScoreRisco() -> _
 
 ## Do PDF:
